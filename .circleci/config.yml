@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  test:
+    working_directory: ~/repo
+    docker:
+      - image: cimg/node:20.5.1
+    steps:
+      - checkout
+      - run: 
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run lint
+          command: npm run lint
+      - run:
+          name: Run tests
+          command: npm run test
+
+workflows:
+  test-wf:
+    jobs:
+      - test
