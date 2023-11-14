@@ -21,10 +21,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run lint
-          command: npm run lint
+          command: npm run lint:report
       - run:
           name: Run tests
-          command: npm run test
+          command: npm run test:coverage
 
 workflows:
   test-wf:
